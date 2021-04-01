@@ -2,26 +2,30 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
+import './Admin.css'
 const Admin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
-    const [imageURL ,setImageURL] = useState()
+    const [imageURL , setImageURL] = useState()
     
     const onSubmit = data => {
-        const productData = {
-            name : data.name,
-            imageURL : imageURL
-        }
-        const url = `http://localhost:5000/admin`
-        // console.log(productData)
-        fetch(url,{
-            method : 'POST',
-            headers: {
-                'content-type':'application/json'
-            },
-            body : JSON.stringify(productData)
-        })
-        .then(res=> console.log('responded server',res))
-    };
+        // console.log(data);
+          const productData = {
+              name : data.name,
+              price : data.price,
+              imageURL : imageURL
+          };
+           const url = `http://localhost:5000/admin` ;
+           console.log(productData);
+           fetch (url, {
+               method : 'POST',
+               headers : {
+                   'Content-Type': 'application/json'
+               },
+               body : JSON.stringify(productData)
+           })
+           .then (res => console.log('server responded' , res))
+        };
     
     const handleImgUpload = e => {
         console.log(e.target.files[0]);
@@ -32,25 +36,36 @@ const Admin = () => {
         axios.post('https://api.imgbb.com/1/upload',
         imageData)
         .then(function(response){
-            console.log(response.data.data.display_url);
+            setImageURL(response.data.data.display_url);
         })
         .catch(function(error){
             console.log(error);
         })
     }
     return (
-        <div >
+        <div className="container mt-5" >
+            <div >
+               <Link className="link" to="/manage">Manage Product</Link>
+            </div>
+            <div className="mt-5">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input name="name" defaultValue="New Product" ref={register} />
+                <label><h4>Add Your Product</h4></label>
                 <br/>
-                <input name="price" defaultValue="test" ref={register} />
+                <input className="form-input" name="name" defaultValue="new product" type="text" ref={register} />
+                <br/>
+                <label><h4>Price</h4></label>
+                <br/>
+                <input className="form-input" name="price" defaultValue="test" type="number" ref={register} />
+                <br/>
+                <label><h4>Add File</h4></label>
                 <br/>
                 <input name="exampleRequired" type="file" onChange={handleImgUpload} />
                 <br/>
                 {errors.exampleRequired && <span>This field is required</span>}
-
-                <input type="submit" />
+                <br/>
+                <input className="submit-btn" type="submit" />
             </form>
+            </div>
         </div>
     );
 };
