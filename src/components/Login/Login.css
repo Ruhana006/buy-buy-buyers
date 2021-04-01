@@ -1,0 +1,17 @@
+.google-signin,.fb-signin{
+    margin-top: 20px;
+    border-radius: 5px;
+    width:40%;
+    padding: 10px;
+    border: none;
+    border: none;
+    color: white;
+    font-weight: 700; 
+      
+}
+.google-signin{
+    background-color: rgb(6, 171, 89); 
+}
+.fb-signin{
+    background-color: steelblue;
+}
