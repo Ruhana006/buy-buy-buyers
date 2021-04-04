@@ -15,7 +15,7 @@ const Admin = () => {
               price : data.price,
               imageURL : imageURL
           };
-           const url = `http://localhost:5000/admin` ;
+           const url = `https://peaceful-taiga-70194.herokuapp.com/admin` ;
            console.log(productData);
            fetch (url, {
                method : 'POST',

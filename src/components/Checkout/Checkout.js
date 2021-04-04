@@ -17,7 +17,7 @@ const Checkout = () => {
 
 
     useEffect(() => {
-        const url = (`http://localhost:5000/products/` + _id)
+        const url = ('https://peaceful-taiga-70194.herokuapp.com/products/' + _id)
         fetch(url)
             .then(res => res.json())
             .then(data => setSelected(data[0]))
@@ -32,7 +32,7 @@ const Checkout = () => {
         const productPrice = selected.price;
         console.log(productName, productPrice);
         const newOrder = { ...loggedInUser, productName, productPrice }
-        fetch('http://localhost:5000/order', {
+        fetch('https://peaceful-taiga-70194.herokuapp.com/order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newOrder)

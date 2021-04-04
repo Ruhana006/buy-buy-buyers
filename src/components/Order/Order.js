@@ -10,7 +10,7 @@ const Order = () => {
     const [ordered , setOrdered] = useState([])
     const {_id} = useParams()
     useEffect(() => {
-        fetch('http://localhost:5000/productorders')
+        fetch('https://peaceful-taiga-70194.herokuapp.com/productorders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
