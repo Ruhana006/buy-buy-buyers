@@ -35,13 +35,22 @@ function App() {
         <PrivateRoute path="/admin">
           <Admin/>
         </PrivateRoute>
+        <PrivateRoute path="/manage">
+          <Admin/>
+        </PrivateRoute>
         <PrivateRoute path="/products/:_id">
+         <Checkout/>
+        </PrivateRoute>
+        <PrivateRoute path="/checkout">
          <Checkout/>
         </PrivateRoute>
         <Route path="/login">
           <Login/>
         </Route>
         <PrivateRoute path ="/order">
+         <Order/>
+        </PrivateRoute>
+        <PrivateRoute path ="/productorders">
          <Order/>
         </PrivateRoute>
       </Switch>

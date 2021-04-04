@@ -12,7 +12,7 @@ const Products = (props) => {
         history.push(url);
     }
     return (
-        <div className="container col-md-4 mt-5">
+        <div className="container-fluid col-md-4 col-sm-6 mt-5">
             <Card className="card" style={{width:'300px'}}>
                 <Card.Img variant="top" src={imageURL} style={{ height: '250px', width: '300px' }}/>
                 <Card.Body>

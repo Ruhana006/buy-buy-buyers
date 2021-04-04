@@ -3,14 +3,15 @@
     padding: 10px;
     text-decoration: none;
     margin: 5px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .link:hover{
    background-color: grey;
 }
 .brand h3{
-    color: rgb(6, 105, 166);
-    font-family: 'Courier New', Courier, monospace;
+    color: rgb(3, 101, 101);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 35px;
+    
 }

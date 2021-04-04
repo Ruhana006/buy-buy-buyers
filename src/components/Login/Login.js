@@ -34,30 +34,9 @@ const Login = () => {
             console.log(errorMessage);
         });
     }
-
-    const handleFacebookSignIn = () => {
-        var fbProvider = new firebase.auth.FacebookAuthProvider();
-        firebase.auth()
-            .signInWithPopup(fbProvider)
-            .then((result) => {
-                const { displayName, email } = result.user;
-                const signedInUser = { name: displayName, email }
-                setLoggedInUser(signedInUser);
-                history.replace(from);
-                
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                var email = error.email;
-                var credential = error.credential;
-                console.log(errorMessage, email);
-            });
-    }
     return (
         <div style={{ textAlign: 'center' }}>
             <h1>Please Login to place order</h1>
-            <button className="fb-signin" onClick={handleFacebookSignIn}> Sign in with FaceBook</button>
             <br />
             <button className="google-signin" onClick={handleGoogleSignIn}> Sign in with Google</button>
         </div>

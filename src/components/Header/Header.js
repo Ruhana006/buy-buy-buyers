@@ -10,8 +10,8 @@ const Header = () => {
     }
     return (
         <div>
-             <Navbar className="container-fluid" bg="light" expand="lg">
-                <Navbar.Brand className="mr-auto brand" href="#home"><h3>Buy Buy Buyers</h3></Navbar.Brand>
+             <Navbar className="container" bg="light" expand="lg">
+                <Navbar.Brand className="mr-auto brand" href="#home"><h3>Buy-Buy-Buyers</h3></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
@@ -19,7 +19,7 @@ const Header = () => {
                         <Link to="/order" className="link">Order</Link>
                         <Link to="/admin" className="link">Admin</Link>
                         <Link to ="/checkout" className="link">Checkout</Link>
-                        <button onClick={()=>handleLogin()}  className="btn btn-primary btn-lg">Log in</button>
+                        <button onClick={()=>handleLogin()}  className="btn btn-outline-primary btn-lg">Log in</button>
                     </Nav>    
                 </Navbar.Collapse>
             </Navbar>

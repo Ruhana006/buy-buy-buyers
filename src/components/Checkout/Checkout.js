@@ -1,22 +1,52 @@
 import { Button } from 'react-bootstrap';
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Header from '../Header/Header';
+import { useContext } from 'react';
+import { UserContext } from '../../App';
 
 const Checkout = () => {
     const { _id } = useParams();
-    const [selected , setSelected] = useState([])
-    
-    useEffect(() =>{
-        const url = `http://localhost:5000/products`
+    const history = useHistory()
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [selected, setSelected] = useState([]);
+    const dateTime = new Date().toLocaleString();
+
+
+    useEffect(() => {
+        const url = (`http://localhost:5000/products/` + _id)
         fetch(url)
-        .then(res => res.json())
-        .then(data => setSelected(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setSelected(data[0]))
+
+    }, [_id])
+
+    const handleCheckout = (_id) => {
+        const url = `/productorders`;
+        history.push(url)
+
+        const productName = selected.name;
+        const productPrice = selected.price;
+        console.log(productName, productPrice);
+        const newOrder = { ...loggedInUser, productName, productPrice }
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newOrder)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+
+    }
+    
     return (
         <div>
+            <Header />
             <h1>Checkout</h1>
             <Table className="mt-5" striped bordered variant="dark">
                 <thead>
@@ -38,8 +68,7 @@ const Checkout = () => {
                         <td></td>
                     </tr>
                     <tr>
-                        <td colSpan="2"><Button variant="outline-light"size="lg">Checkout</Button></td>
-                        <td>Total = $ {selected.price}</td>
+                        <td ><Button onClick={() => handleCheckout()} variant="outline-light" size="lg">Checkout</Button></td>
                     </tr>
                 </tbody>
             </Table>

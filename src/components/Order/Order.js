@@ -1,9 +1,30 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useParams } from 'react-router';
+import Header from '../Header/Header';
+import OrderDetails from '../OrderDetails/OrderDetails';
 
 const Order = () => {
+    const [orders, setOrders] = useState([]);
+    const [ordered , setOrdered] = useState([])
+    const {_id} = useParams()
+    useEffect(() => {
+        fetch('http://localhost:5000/productorders')
+            .then(res => res.json())
+            .then(data => setOrders(data))
+    }, [])
+    
     return (
         <div>
-            <h1>this is your order</h1>
+            <Header/>
+            <div>
+                <h1 style={{textAlign : 'center'}}>These are your orders</h1>
+                {
+                    orders.map(order => <OrderDetails order = {order}></OrderDetails>)
+                }
+            </div>
+            
         </div>
     );
 };
