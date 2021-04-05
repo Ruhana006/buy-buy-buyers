@@ -8,20 +8,6 @@ const ManageProduct = (props) => {
     console.log(name,price);
     const history = useHistory()
 
-    const deleteProduct = (_id,product)=>{
-        
-        fetch(`https://peaceful-taiga-70194.herokuapp.com/delete/${_id}`,{
-            method: 'DELETE'
-        })
-          .then(res => res.json())
-          .then(result => {
-              if(result){
-                  props.target.parentNode.style.display = 'none';
-                  history.go(0)
-              }
-              console.log('result',result);
-          })
-    }
     return (
         <div>
             <Card style={{height:"160px"}} className="mb-4">
@@ -30,7 +16,7 @@ const ManageProduct = (props) => {
                     <Card.Text>
                         <h4>$ {price}</h4>
                     </Card.Text>
-                    <Button onclick={()=> deleteProduct(_id)} variant="outline-danger">Delete Product</Button>
+                    <Button  variant="outline-danger">Delete Product</Button>
                 </Card.Body>
             </Card>
         </div>

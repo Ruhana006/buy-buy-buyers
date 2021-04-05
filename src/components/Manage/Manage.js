@@ -19,8 +19,7 @@ const Manage = (props) => {
                 <h1>this is manage</h1>
                 {
                     manageProduct.map(manage => <ManageProduct manage = {manage}></ManageProduct>)
-                }
-                
+                }   
             </div>
 
         </div>
@@ -28,6 +27,4 @@ const Manage = (props) => {
 };
 
 export default Manage;
- // <ListGroup variant="flush">
-// <ListGroup.Item>{props.name}</ListGroup.Item>
-// </ListGroup>
+ 
