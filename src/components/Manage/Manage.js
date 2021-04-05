@@ -16,7 +16,6 @@ const Manage = (props) => {
         <div>
             <Header />
             <div className="container">
-                <h1>this is manage</h1>
                 {
                     manageProduct.map(manage => <ManageProduct manage = {manage}></ManageProduct>)
                 }   
