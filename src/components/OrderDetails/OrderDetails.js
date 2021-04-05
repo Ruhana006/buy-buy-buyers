@@ -8,7 +8,7 @@ const OrderDetails = (props) => {
 
     return (
 
-        <div className="container">
+        <div className="container mt-5">
             <ListGroup variant="flush">
                 <ListGroup.Item><h4>Product name : {productName}</h4></ListGroup.Item>
                 <ListGroup.Item><h5>Price : $ {productPrice} </h5></ListGroup.Item>

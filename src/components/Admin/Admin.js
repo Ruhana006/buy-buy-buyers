@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 import './Admin.css'
 const Admin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -43,11 +44,13 @@ const Admin = () => {
         })
     }
     return (
-        <div className="container mt-5" >
-            <div >
+        <div className="container" >
+            <Header/>
+            <div className="mt-2">
+            <Link className="link" to="/addproduct">Add Product</Link>
                <Link className="link" to="/manage">Manage Product</Link>
             </div>
-            <div className="mt-5">
+            <div className="mt-5 ">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label><h4>Add Your Product</h4></label>
                 <br/>

@@ -19,7 +19,7 @@ const Order = () => {
         <div>
             <Header/>
             <div>
-                <h1 style={{textAlign : 'center'}}>These are your orders</h1>
+                <h1 style={{textAlign : 'center',fontFamily : 'sans-serif',fontSize:'40px',fontWeight:'700'}}>These are your orders : </h1>
                 {
                     orders.map(order => <OrderDetails order = {order}></OrderDetails>)
                 }

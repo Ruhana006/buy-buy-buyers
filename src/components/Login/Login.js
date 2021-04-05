@@ -35,8 +35,8 @@ const Login = () => {
         });
     }
     return (
-        <div style={{ textAlign: 'center' }}>
-            <h1>Please Login to place order</h1>
+        <div className=" mt-5" style={{ textAlign: 'center' }}>
+            <h1 style ={{fontFamily : 'bold',fontSize:'40px',fontWeight:'700'}}>Please Login to place order</h1>
             <br />
             <button className="google-signin" onClick={handleGoogleSignIn}> Sign in with Google</button>
         </div>

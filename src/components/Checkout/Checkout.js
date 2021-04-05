@@ -47,8 +47,8 @@ const Checkout = () => {
     return (
         <div>
             <Header />
-            <h1>Checkout</h1>
-            <Table className="mt-5" striped bordered variant="dark">
+            <h1 style ={{textAlign:'center',fontFamily : 'bold',fontSize:'40px',fontWeight:'700'}}>Checkout</h1>
+            <Table className="container mt-5" striped bordered variant="dark">
                 <thead>
                     <tr>
                         <th>Description</th>
